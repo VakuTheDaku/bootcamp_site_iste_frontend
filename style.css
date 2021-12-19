@@ -35,7 +35,7 @@ body
     gap: 5em;
     width: 100%;
     padding-top: 3em;
-    border-bottom: 3em;
+    border-bottom: em;
     position: relative;
 }
 .content::before{
@@ -44,13 +44,13 @@ body
     top: 0;
     left: 0;
     width: 100%;
-    border-top: 1px solid white;
+    border-top: 1px solid #e91e63;
     
     transform: scaleX(1);
 
 }
 .dd{
-    color: white;
+    color: #e91e63;
     font-size: 3rem;
     
     line-height: 97%;
@@ -59,7 +59,7 @@ body
     
 }
 .dd,.yy{
-    color: white;
+    color: black;
     flex-basis: 0;
     flex-grow: 1;
     clip-path: polygon(0 0,100% 0, 100% 0, 0 0);
@@ -81,7 +81,7 @@ body
     
     left: 0;
     width: 100%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #e91e63;
     
     transform: scaleX(1);
 
@@ -123,128 +123,13 @@ body
     padding: 100px 0;
     background-color: #f8f8f8;
   }
-.timeline {
-    z-index: 1;
-    /* background-image: url('fundamentals.svg'); */
-    width: 80%;
-    height: auto;
-    
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-  
-  .timeline ul {
-    list-style: none;
-  }
-  .timeline ul li {
-    padding: 20px;
-    height: 100%;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.06);
-      -webkit-backdrop-filter: blur(5px);
-              backdrop-filter: blur(5px);
-      margin-top: 5px;
-      padding: 2rem;
-      
-      border-radius: 1rem;
-      -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
-              box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
-      font-family: 'Poppins',sans-serif;
-    color: black;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  .timeline ul li:last-child {
-    margin-bottom: 0;
-  }
-  .timeline-content h1 {
-    color: white;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 30px;
-    margin-bottom: 10px;
-  }
-  .timeline-content p {
-    color: white;
-    font-size: 16px;
-    line-height: 30px;
-    font-weight: 300;
-  }
-  .timeline-content .date {
-    color: white;
-    font-size: 20px;
-    font-style: unset;
-    font-weight: 300;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-  }
-  .timeline-content h1:hover{
-    color: #e91e63;
-}
-.timeline-content .date:hover {
-    color: #e91e63;
-}
-  @media only screen and (min-width: 768px) {
-      
-    .timeline:before {
-        
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 100%;
-      background-color: gray;
-    }
-    .timeline ul li {
-      width: 50%;
-      position: relative;
-      margin-bottom: 50px;
-    }
-    .timeline ul li:nth-child(odd) {
-      float: left;
-      clear: right;
-      transform: translateX(-30px);
-      border-radius: 20px 0px 20px 20px;
-    }
-    .timeline ul li:nth-child(even) {
-      float: right;
-      clear: left;
-      transform: translateX(30px);
-      border-radius: 0px 20px 20px 20px;
-    }
-    .timeline ul li::before {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background-color: gray;
-      top: 0px;
-    }
-    .timeline ul li:nth-child(odd)::before {
-      transform: translate(50%, -50%);
-      right: -30px;
-    }
-    .timeline ul li:nth-child(even)::before {
-      transform: translate(-50%, -50%);
-      left: -30px;
-    }
-    /* .timeline-content .date {
-      position: absolute;
-      top: -30px;
-    } */
-    .timeline ul li:hover::before {
-      background-color: #e91e63;
-    }
-    .navbar{
+
+  .navbar{
         width: auto;
     }
    
 
-  }
+  
   .tim{
     z-index: 1;
     position: relative;
@@ -274,7 +159,7 @@ body
   
   background-size: 100% 100%;
   
-  width: 100%;
+  
   font-family: "Roboto";
   font-weight: 400;
   font-size: 30px;
@@ -308,7 +193,9 @@ color: black;
 }
 .card{
   text-align: left;
-  margin: 4px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
   padding-left: 30px;
   padding-top: 10px;
   padding-right: 40px;
@@ -316,5 +203,18 @@ color: black;
   border-radius: 1.3rem;
   height: max-content;
   
+  border-right-width: 5px;
+  border-bottom-width: 5px;
   background-color:#EFF7F2;
+}
+#instructors{
+  background-color: #eff7f2;
+}
+.we{
+  background-color: rgba(69, 160, 73,0.5);
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+}
+.ill{
+  margin-bottom: 40px;
 }
