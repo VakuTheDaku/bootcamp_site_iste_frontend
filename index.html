@@ -18,157 +18,6 @@
     
 
 
-    <canvas class="webgl"></canvas>
-    <script src="js/three.js"></script>
-    
-
-
-    <script>
-        const loader = new THREE.TextureLoader()
-        const cross = loader.load('blackstar.png')
-
-const canvas = document.querySelector('canvas.webgl')
-// Scene
-const scene = new THREE.Scene()
-
-// Objects
-const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
-
-const particlesGeometry = new THREE.BufferGeometry;
-const particlescount = 5000;
-const posArray= new Float32Array(particlescount*3)
-
-
-for(let i=0;i<particlescount*3;i++){
-    posArray[i] = (Math.random()-0.5)*(Math.random()*5)
-}
-particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray,3))
-
-// Materials
-
-const material = new THREE.PointsMaterial(
-    {
-        size: 0.005,
-        map: cross
-        
-    }
-)
-const particlesmaterial = new THREE.PointsMaterial(
-    {
-        size: 0.005,
-        map : cross,
-        transparent : true,
-       
-
-    }
-)
-material.color = new THREE.Color()
-
-// Mesh
-const sphere = new THREE.Points(geometry,material)
-const particlemesh= new THREE.Points(particlesGeometry, particlesmaterial)
-scene.add(sphere, particlemesh)
-
-// Lights
-
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
-
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
-
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = 0
-camera.position.z = 2
-scene.add(camera)
-
-// Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
-
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-renderer.setClearColor(new THREE.Color('#EFF7F2'),1)
-
-document.addEventListener('mousemove', animateparticles)
-
-let mouseX=0
-let mouseY =0
-function animateparticles(event){
-    mouseY=event.clientY
-    mouseX=event.clientX
-}
-
-/**
- * Animate
- */
-
-const clock = new THREE.Clock()
-
-const tick = () =>
-{
-
-    const elapsedTime = clock.getElapsedTime()
-
-    // Update objects
-    sphere.rotation.y = .5 * elapsedTime
-    particlemesh.rotation.y=0.1* elapsedTime
-    if(mouseX>0){
-    particlemesh.rotation.x = -mouseY * (elapsedTime)*0.0001
-    particlemesh.rotation.y = -mouseX * (elapsedTime)*0.0001
-    }
-    // Update Orbital Controls
-    // controls.update()
-
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()
-        
-        
-        
-        
-    </script>
-
-
   <!-- NAVBAR -->
     
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -205,10 +54,161 @@ tick()
         </div>
         </div>
       </nav> 
+  
+      <canvas class="webgl"></canvas>
+      <script src="js/three.js"></script>
+      
+  
+  
+      <script>
+          const loader = new THREE.TextureLoader()
+          const cross = loader.load('blackstar.png')
+  
+  const canvas = document.querySelector('canvas.webgl')
+  // Scene
+  const scene = new THREE.Scene()
+  
+  // Objects
+  const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
+  
+  const particlesGeometry = new THREE.BufferGeometry;
+  const particlescount = 5000;
+  const posArray= new Float32Array(particlescount*3)
+  
+  
+  for(let i=0;i<particlescount*3;i++){
+      posArray[i] = (Math.random()-0.5)*(Math.random()*5)
+  }
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray,3))
+  
+  // Materials
+  
+  const material = new THREE.PointsMaterial(
+      {
+          size: 0.005,
+          map: cross
+          
+      }
+  )
+  const particlesmaterial = new THREE.PointsMaterial(
+      {
+          size: 0.005,
+          map : cross,
+          transparent : true,
+         
+  
+      }
+  )
+  material.color = new THREE.Color()
+  
+  // Mesh
+  const sphere = new THREE.Points(geometry,material)
+  const particlemesh= new THREE.Points(particlesGeometry, particlesmaterial)
+  scene.add(sphere, particlemesh)
+  
+  // Lights
+  
+  const pointLight = new THREE.PointLight(0xffffff, 0.1)
+  pointLight.position.x = 2
+  pointLight.position.y = 3
+  pointLight.position.z = 4
+  scene.add(pointLight)
+  
+  /**
+   * Sizes
+   */
+  const sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight
+  }
+  
+  window.addEventListener('resize', () =>
+  {
+      // Update sizes
+      sizes.width = window.innerWidth
+      sizes.height = window.innerHeight
+  
+      // Update camera
+      camera.aspect = sizes.width / sizes.height
+      camera.updateProjectionMatrix()
+  
+      // Update renderer
+      renderer.setSize(sizes.width, sizes.height)
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  })
+  
+  /**
+   * Camera
+   */
+  // Base camera
+  const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+  camera.position.x = 0
+  camera.position.y = 0
+  camera.position.z = 2
+  scene.add(camera)
+  
+  // Controls
+  // const controls = new OrbitControls(camera, canvas)
+  // controls.enableDamping = true
+  
+  /**
+   * Renderer
+   */
+  const renderer = new THREE.WebGLRenderer({
+      canvas: canvas
+  })
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setClearColor(new THREE.Color('#EFF7F2'),1)
+  
+  document.addEventListener('mousemove', animateparticles)
+  
+  let mouseX=0
+  let mouseY =0
+  function animateparticles(event){
+      mouseY=event.clientY
+      mouseX=event.clientX
+  }
+  
+  /**
+   * Animate
+   */
+  
+  const clock = new THREE.Clock()
+  
+  const tick = () =>
+  {
+  
+      const elapsedTime = clock.getElapsedTime()
+  
+      // Update objects
+      sphere.rotation.y = .5 * elapsedTime
+      particlemesh.rotation.y=0.1* elapsedTime
+      if(mouseX>0){
+      particlemesh.rotation.x = -mouseY * (elapsedTime)*0.0001
+      particlemesh.rotation.y = -mouseX * (elapsedTime)*0.0001
+      }
+      // Update Orbital Controls
+      // controls.update()
+  
+      // Render
+      renderer.render(scene, camera)
+  
+      // Call tick again on the next frame
+      window.requestAnimationFrame(tick)
+  }
+  
+  tick()
+          
+          
+          
+          
+      </script>
+  
       
     
 
-
+      
       
     <div class="contai">
         
@@ -221,17 +221,31 @@ tick()
 
             <div class="content">
                 <div class="row">
-                    <div class="colomn lg-12 sm-6">
+                    <div class="colomn lg-6 sm-6">
                 <h1 class="dd">WELCOME TO BOOTCAMP 2K21</h1>
             </div>
                 <h2 class="yy">Your journey as a web developer starts here</h2>
+                
             </div>
+            
+              
+            
             </div>
             <div class="line"></div>
-        </div>
-        <canvas class="webgl"></canvas>
+            
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-12 text-center">
+          
+        
+      <section class="random_image">
+        <img src="fundamentals.svg" >
+      </section>
+    </div> -->
+  </div>
         
     </div>
+    
     <!-- INTRO -->
     <section id="intro" class="my-0 bg-image">
       <div class="container">
@@ -257,21 +271,14 @@ tick()
       </div>
       </div>
         <div class="row">
-          <div class="col-lg-2 ">
-            <p class="text-right text-white hh">
-              500+ Members
-            </p>
           
+        <div class="col-lg-12 mx-1">
+          <hr style="width: 100%;color: white;height: 6px;">
         </div>
-        <div class="col-lg-7 mx-1">
-          <hr>
-        </div>
-        <div class="col-lg-2">
-          
-          <p class=" text-white ">
-            500+ Members
         
-        </p>
+            
+        
+        </div>
       </div>
       </div>
       </div>
@@ -544,7 +551,7 @@ tick()
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="card we">
-              <div class="card-body text-center">
+              <div class="card-body text-left">
                 <img src="https://randomuser.me/api/portraits/men/15.jpg"
                 class="rounded-circle mb-3"/>
                 <h3 class="card-title mb-3 text-dark">Vishnu</h3>
