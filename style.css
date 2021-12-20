@@ -25,7 +25,7 @@ body
     z-index: 1;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 140vh;
     display: grid;
     place-content: center;
     line-height: 97%;
@@ -87,7 +87,7 @@ body
 
 }
 .navbar{
-    z-index: 2;
+    z-index: 3;
     position: fixed;
     width: 100%;
     margin-right: 0
@@ -100,7 +100,7 @@ body
 }
 
 .contai{
-    
+    z-index: 1;
     position: relative;
     width: 100%;
     
@@ -114,7 +114,7 @@ body
     width: 70%;
 }
 .co {
-    
+    z-index: 1;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -192,6 +192,7 @@ color: black;
   background-color: #EBF0F9;
 }
 .card{
+  z-index: 1;
   text-align: left;
   margin-left: 16px;
   margin-right: 16px;
@@ -208,18 +209,41 @@ color: black;
   background-color:#EFF7F2;
 }
 #instructors{
+  position: relative;
+  z-index: 1;
   background-color: #eff7f2;
 }
 .we{
+  z-index: 1;
   background-color: rgba(69, 160, 73,0.5);
   border-right-width: 0px;
   border-bottom-width: 0px;
 }
 .ill{
+  z-index: 1;
   margin-bottom: 40px;
 }
 .random_image{
   align-content: center;
   width: fit-content;
   height: fit-content;
+}
+footer{
+  z-index: 1;
+  position: relative;
+}
+.container{
+  z-index: 1;
+  position: relative;
+}
+.all{
+  z-index: 1;
+}
+.changecol{
+  background-color: #BEF3C0;
+  
+  
+}
+.rotate{
+  transform: rotate(90deg);
 }
