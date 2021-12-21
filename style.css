@@ -10,7 +10,7 @@ body
 {
     height: 100vh;
     font-family: 'Poppins';
-    
+    overflow-x: hidden;
 }
 
 .webgl
@@ -215,7 +215,7 @@ color: black;
 }
 .we{
   z-index: 1;
-  background-color: rgba(69, 160, 73,0.5);
+ 
   border-right-width: 0px;
   border-bottom-width: 0px;
 }
@@ -246,4 +246,16 @@ footer{
 }
 .rotate{
   transform: rotate(90deg);
+}
+.block{
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba(69, 160, 73,0.5);
+}
+.colored{
+  border-radius: 0;
+}
+.coloor{
+  background-color: rgba(69, 160, 73,0.5)
 }
